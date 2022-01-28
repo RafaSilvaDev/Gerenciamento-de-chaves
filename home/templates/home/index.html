@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/disponiveis.css' %}" />
+
+    <title>Chaves Disponíveis</title>
+  </head>
+  <body>
+    {% include 'header.html' %} {% include 'msg.html' %}
+
+    <main>
+      {% for i in dados %} {% if i.status == "D" %}
+      <div class="key_card {{i.color}}" id="card">
+        <div class="info">
+          <div class="text">
+            <h3>{{i}}</h3>
+            <p>
+              <a
+                id="reservar{{i.id}}"
+                class="btn-primary"
+                onclick="btnAvaiable(this)"
+                data-bs-toggle="collapse"
+                href="#card-form{{i.id}}"
+                role="button"
+                aria-expanded="false"
+                aria-controls="card-form{{i.id}}"
+              >
+                Reservar
+              </a>
+            </p>
+          </div>
+          <div class="conteudo_back">
+            <img
+              class="back"
+              src="{% static 'images/key.png' %}"
+              style="width: 135px; height: 150px"
+            />
+          </div>
+        </div>
+        <div class="collapse" id="card-form{{i.id}}">
+          <form method="POST" id="form" action="{% url 'reservar' i.id %}">
+            {% csrf_token %}
+            <div class="input-form">
+              <label for="#name">Nome</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Digite seu nome"
+                value=""
+              />
+            </div>
+            <div class="input-form">
+              <label for="#edv">EDV</label>
+              <input
+                id="edv"
+                type="text"
+                name="edv"
+                placeholder="Digite seu edv"
+                value=""
+                maxlength="8"
+              />
+            </div>
+            <button class="btn-success" type="submit" id="send">
+              Reservar chave
+            </button>
+          </form>
+        </div>
+      </div>
+      {% endif %} {% endfor %}
+    </main>
+
+    <script src="{% static 'js\script.js' %}"></script>
+  </body>
+</html>

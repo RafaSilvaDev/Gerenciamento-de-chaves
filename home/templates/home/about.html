@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/about.css' %}" />
+  <title>About</title>
+</head>
+
+<body>
+  {% include 'header.html' %}
+  <main class="login">
+    <section class="login_panel">
+      <img src="{% static 'images/img_ets.jpg' %}">
+    </section>
+
+    <section class=" logo_panel">
+      <br><br><br><br>
+      <p> Em 1960, a Bosch implementou, em parceria com o SENAI, o programa de formação de aprendizes – Programa de
+        Aprendizagem Industrial Bosch-Senai. </p>
+      <p>No decorrer dos anos, a ETS ofertou diversos cursos, como: Ajustador, Ferramenteiro, Fresador, Mecânico de Auto,
+      Mecânico de Manutenção, Retificador e Torneiro Mecânico, Mecânico Industrial de Produção, Técnico Elétrico,
+      Técnico em Mecatrônica e Técnico em Análise de Sistemas (Smart Automation).</p>
+      <p>Assim, em todas as fabricas Bosch no Brasil, as escolas de Aprendizes Industrial, asseguram desenvolvimento e
+      capacitação de jovens aprendizes.</p>
+      <p>Até hoje, mais de 1400 alunos passaram pela ETS e 350 desses profissionais estão atuando hoje na Bosch nos mais
+      variados cargos. Um indicativo de sucesso de 60 anos de um projeto incrível e que vem formando profissionais com
+      conhecimento técnico e de valores.</p>
+
+    </section>
+  </main>
+</body>
+
+</html>

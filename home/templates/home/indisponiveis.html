@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/indisponiveis.css' %}" />
+    <title>Chaves Indisponíveis</title>
+  </head>
+  <body>
+    {% include 'header.html' %} {% include 'msg.html' %}
+    <main>
+      {% for i in dados %} {% if i.status == "I" %}
+
+      <div class="key_card">
+        <div class="text">
+          <h3>{{i}}</h3>
+          <p><strong>{{i.usuario_nome}}</strong></p>
+          <p>
+            <a
+              id="reservar{{i.id}}"
+              class="btn-primary"
+              onclick="btnUnavaiable(this)"
+              data-bs-toggle="collapse"
+              href="#card-form{{i.id}}"
+              role="button"
+              aria-expanded="false"
+              aria-controls="card-form{{i.id}}"
+            >
+              Devolver
+            </a>
+          </p>
+          <div class="collapse" id="card-form{{i.id}}">
+            <form method="POST" id="form" action="{% url 'devolver' i.id %}">
+              {% csrf_token %}
+              <div class="input-form">
+                <label for="#edv">Digite eu EDV para devolução</label>
+                <input
+                  id="edv"
+                  type="text"
+                  name="edv"
+                  placeholder="Digite seu edv"
+                  value=""
+                  maxlength="8"
+                />
+              </div>
+              <button class="btn-success" type="submit" id="send">
+                Devolver chave
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="conteudo_back">
+          <img
+            class="back"
+            src="{% static 'images/cadeado1.png' %}"
+            style="width: 110px; height: 110px"
+          />
+        </div>
+      </div>
+
+      {% endif %} {% endfor %}
+    </main>
+    <script src="{% static '/js/script.js' %}">
+    </script>
+  </body>
+</html>

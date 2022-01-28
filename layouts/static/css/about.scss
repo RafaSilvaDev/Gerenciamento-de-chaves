@@ -1,0 +1,36 @@
+.login {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .login_panel {
+   height: 400px;
+   width: 60%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   margin-top: 50px;
+ }
+
+ .logo_panel {
+   height: 100%;
+   width: 50%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   color: black;
+   text-align: justify;
+   margin-right: 50px;
+ }
+
+ img{
+   width:70%;
+   height: 100%;
+ }
+
+ p{
+   margin-bottom: 15px;
+ }

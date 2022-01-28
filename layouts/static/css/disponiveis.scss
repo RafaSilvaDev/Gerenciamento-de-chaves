@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@mixin flexLayout($direction, $align, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.text,
+.conteudo_back {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+
+.key_card {
+  @include flexLayout(column, flex-start, space-between);
+  margin: 30px;
+  padding: 40px;
+
+  width: 750px;
+  height: auto;
+
+  border-radius: 10px;
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.42);
+
+  .info {
+    @include flexLayout(row, flex-start, space-between);
+    width: 100%;
+  }
+
+  .btn-primary{
+    padding: 5px;
+    border-radius: 4px;
+  }
+  .conteudo_back {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+  }
+
+  form {
+    @include flexLayout(column, flex-start, center);
+    background-color: transparent;
+    color: #fff;
+
+    .input-form {
+      @include flexLayout(column, flex-start, center);
+      margin: 8px 0;
+    }
+
+    #send {
+      border: none;
+      border-radius: 4px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+
+    input {
+      height: 45px;
+      padding-left: 6px;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+    }
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+
+  h1 {
+    font-size: 4.8rem;
+  }
+}
+
+main {
+  @include flexLayout(column, center, center);
+}
+
+.key_card:hover {
+  opacity: 0.9;
+}
+
+// COLORAÇÃO DOS CARDS:
+
+.brown {
+  //sala 03
+  background-color: #c62fb5;
+}
+
+.yellow {
+  //sala amarela
+  background-color: #ffb41f;
+}
+
+.orange {
+  // armário de brindes
+  background-color: #f57251;
+}
+
+.darkred {
+  //armário materiais instrutores
+  background-color: #8f0200;
+}
+
+.darkred {
+  //armário IOT
+  background-color: #52050a;
+}
+
+.darkblue {
+  //armário de uniformes
+  background-color: #2f4874;
+}
+.darkpurple {
+  //armário de itens de informática
+  background-color: #570f48;
+}
+.purple {
+  //Sala 02
+  background-color: #8b6adc;
+}
+.cyan {
+  //armário de arquivos
+  background-color: #005e66;
+}
+.blue {
+  //armário de materiais didáticos
+  background-color: #6699cc;
+  h3, *{
+    color: #000;
+  }
+}
+.golden {
+  //armário de IOT
+  background-color: #fabc75;
+  h3, *{
+    color: #000;
+  }
+}
+.darkblue {
+  //armário de uniformes e fotos
+  background-color: #0b3954;
+}
+.pink {
+  //Armário de materiais p/ escritório
+  background-color: #ff70b3;
+}
+.lightgreen {
+  //Sala 01
+  background-color: #bcf1bf;
+  h3, *{
+    color: #000;
+  }
+}
+.purpleAndBrown {
+  //Sala 02/03
+  background-color: #663a00;
+}
+.green {
+  //Sala verde
+  background-color: #5bc284;
+}
+.greenAndYellow {
+  //Sala verde/amarela
+  background-color: #485de0;
+}
+.darkpurple {
+  //armario de itens de informatica
+  background-color: #67199f;
+}
+.darkred {
+  //armario de materiais dos instrutores
+  background-color: #6a1017;
+}
+.red {
+  //sala 04
+  background-color: #d01114;
+}
+
+
+// FIM DAS COLORAÇÕES
+
+@media (max-width: 850px) {
+  .key_card {
+    width: 470px;
+  }
+}
+@media (max-width: 550px) {
+  .key_card {
+    margin: 30px 0;
+    width: 270px;
+
+    h3 {
+      font-size: 1rem;
+    }
+    h1 {
+      font-size: 3rem;
+    }
+  }
+}
